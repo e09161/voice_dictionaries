@@ -450,70 +450,70 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Verb data organized by pronunciation category
-            const verbs = {
-                // /ɪd/ ending verbs (after /t/ or /d/ sounds)
-                idVerbs: [
-                    { base: "decide", past: "decided", audioBase: "verb_01_decide_base.mp3", audioPast: "verb_01_decided_past_ɪd.mp3" },
-                    { base: "hate", past: "hated", audioBase: "verb_02_hate_base.mp3", audioPast: "verb_02_hated_past_ɪd.mp3" },
-                    { base: "invite", past: "invited", audioBase: "verb_03_invite_base.mp3", audioPast: "verb_03_invited_past_ɪd.mp3" },
-                    { base: "need", past: "needed", audioBase: "verb_04_need_base.mp3", audioPast: "verb_04_needed_past_ɪd.mp3" },
-                    { base: "paint", past: "painted", audioBase: "verb_05_paint_base.mp3", audioPast: "verb_05_painted_past_ɪd.mp3" },
-                    { base: "rent", past: "rented", audioBase: "verb_06_rent_base.mp3", audioPast: "verb_06_rented_past_ɪd.mp3" },
-                    { base: "start", past: "started", audioBase: "verb_07_start_base.mp3", audioPast: "verb_07_started_past_ɪd.mp3" },
-                    { base: "wait", past: "waited", audioBase: "verb_08_wait_base.mp3", audioPast: "verb_08_waited_past_ɪd.mp3" },
-                    { base: "want", past: "wanted", audioBase: "verb_09_want_base.mp3", audioPast: "verb_09_wanted_past_ɪd.mp3" }
-                ],
-                
-                // /t/ ending verbs (after voiceless consonants)
-                tVerbs: [
-                    { base: "ask", past: "asked", audioBase: "verb_10_ask_base.mp3", audioPast: "verb_10_asked_past_t.mp3" },
-                    { base: "book", past: "booked", audioBase: "verb_11_book_base.mp3", audioPast: "verb_11_booked_past_t.mp3" },
-                    { base: "check in", past: "checked in", audioBase: "verb_12_check_in_base.mp3", audioPast: "verb_12_checked_in_past_t.mp3" },
-                    { base: "finish", past: "finished", audioBase: "verb_13_finish_base.mp3", audioPast: "verb_13_finished_past_t.mp3" },
-                    { base: "help", past: "helped", audioBase: "verb_14_help_base.mp3", audioPast: "verb_14_helped_past_t.mp3" },
-                    { base: "like", past: "liked", audioBase: "verb_15_like_base.mp3", audioPast: "verb_15_liked_past_t.mp3" },
-                    { base: "look", past: "looked", audioBase: "verb_16_look_base.mp3", audioPast: "verb_16_looked_past_t.mp3" },
-                    { base: "miss", past: "missed", audioBase: "verb_17_miss_base.mp3", audioPast: "verb_17_missed_past_t.mp3" },
-                    { base: "pack", past: "packed", audioBase: "verb_18_pack_base.mp3", audioPast: "verb_18_packed_past_t.mp3" },
-                    { base: "pass", past: "passed", audioBase: "verb_19_pass_base.mp3", audioPast: "verb_19_passed_past_t.mp3" },
-                    { base: "relax", past: "relaxed", audioBase: "verb_20_relax_base.mp3", audioPast: "verb_20_relaxed_past_t.mp3" },
-                    { base: "stop", past: "stopped", audioBase: "verb_21_stop_base.mp3", audioPast: "verb_21_stopped_past_t.mp3" },
-                    { base: "talk", past: "talked", audioBase: "verb_22_talk_base.mp3", audioPast: "verb_22_talked_past_t.mp3" },
-                    { base: "walk", past: "walked", audioBase: "verb_23_walk_base.mp3", audioPast: "verb_23_walked_past_t.mp3" },
-                    { base: "wash", past: "washed", audioBase: "verb_24_wash_base.mp3", audioPast: "verb_24_washed_past_t.mp3" },
-                    { base: "watch", past: "watched", audioBase: "verb_25_watch_base.mp3", audioPast: "verb_25_watched_past_t.mp3" },
-                    { base: "work", past: "worked", audioBase: "verb_26_work_base.mp3", audioPast: "verb_26_worked_past_t.mp3" }
-                ],
-                
-                // /d/ ending verbs (after voiced sounds)
-                dVerbs: [
-                    { base: "answer", past: "answered", audioBase: "verb_27_answer_base.mp3", audioPast: "verb_27_answered_past_d.mp3" },
-                    { base: "arrive", past: "arrived", audioBase: "verb_28_arrive_base.mp3", audioPast: "verb_28_arrived_past_d.mp3" },
-                    { base: "carry", past: "carried", audioBase: "verb_29_carry_base.mp3", audioPast: "verb_29_carried_past_d.mp3" },
-                    { base: "change", past: "changed", audioBase: "verb_30_change_base.mp3", audioPast: "verb_30_changed_past_d.mp3" },
-                    { base: "clean", past: "cleaned", audioBase: "verb_31_clean_base.mp3", audioPast: "verb_31_cleaned_past_d.mp3" },
-                    { base: "close", past: "closed", audioBase: "verb_32_close_base.mp3", audioPast: "verb_32_closed_past_d.mp3" },
-                    { base: "cook", past: "cooked", audioBase: "verb_33_cook_base.mp3", audioPast: "verb_33_cooked_past_d.mp3" },
-                    { base: "cry", past: "cried", audioBase: "verb_34_cry_base.mp3", audioPast: "verb_34_cried_past_d.mp3" },
-                    { base: "learn", past: "learned", audioBase: "verb_35_learn_base.mp3", audioPast: "verb_35_learned_past_d.mp3" },
-                    { base: "listen", past: "listened", audioBase: "verb_36_listen_base.mp3", audioPast: "verb_36_listened_past_d.mp3" },
-                    { base: "live", past: "lived", audioBase: "verb_37_live_base.mp3", audioPast: "verb_37_lived_past_d.mp3" },
-                    { base: "love", past: "loved", audioBase: "verb_38_love_base.mp3", audioPast: "verb_38_loved_past_d.mp3" },
-                    { base: "move", past: "moved", audioBase: "verb_39_move_base.mp3", audioPast: "verb_39_moved_past_d.mp3" },
-                    { base: "offer", past: "offered", audioBase: "verb_40_offer_base.mp3", audioPast: "verb_40_offered_past_d.mp3" },
-                    { base: "open", past: "opened", audioBase: "verb_41_open_base.mp3", audioPast: "verb_41_opened_past_d.mp3" },
-                    { base: "phone", past: "phoned", audioBase: "verb_42_phone_base.mp3", audioPast: "verb_42_phoned_past_d.mp3" },
-                    { base: "play", past: "played", audioBase: "verb_43_play_base.mp3", audioPast: "verb_43_played_past_d.mp3" },
-                    { base: "rain", past: "rained", audioBase: "verb_44_rain_base.mp3", audioPast: "verb_44_rained_past_d.mp3" },
-                    { base: "snow", past: "snowed", audioBase: "verb_45_snow_base.mp3", audioPast: "verb_45_snowed_past_d.mp3" },
-                    { base: "stay", past: "stayed", audioBase: "verb_46_stay_base.mp3", audioPast: "verb_46_stayed_past_d.mp3" },
-                    { base: "study", past: "studied", audioBase: "verb_47_study_base.mp3", audioPast: "verb_47_studied_past_d.mp3" },
-                    { base: "travel", past: "travelled", audioBase: "verb_48_travel_base.mp3", audioPast: "verb_48_travelled_past_d.mp3" },
-                    { base: "turn", past: "turned", audioBase: "verb_49_turn_base.mp3", audioPast: "verb_49_turned_past_d.mp3" },
-                    { base: "use", past: "used", audioBase: "verb_50_use_base.mp3", audioPast: "verb_50_used_past_d.mp3" }
-                ]
-            };
+            // Verb data with CORRECT filenames from your uploads
+const verbs = {
+    // /ɪd/ ending verbs
+    idVerbs: [
+        { base: "decide", past: "decided", audioBase: "verb_01_decide_base.mp3", audioPast: "verb_01_decided_past_ɪd.mp3" },
+        { base: "hate", past: "hated", audioBase: "verb_02_hate_base.mp3", audioPast: "verb_02_hated_past_ɪd.mp3" },
+        { base: "invite", past: "invited", audioBase: "verb_03_invite_base.mp3", audioPast: "verb_03_invited_past_ɪd.mp3" },
+        { base: "need", past: "needed", audioBase: "verb_04_need_base.mp3", audioPast: "verb_04_needed_past_ɪd.mp3" },
+        { base: "paint", past: "painted", audioBase: "verb_05_paint_base.mp3", audioPast: "verb_05_painted_past_ɪd.mp3" },
+        { base: "rent", past: "rented", audioBase: "verb_06_rent_base.mp3", audioPast: "verb_06_rented_past_ɪd.mp3" },
+        { base: "start", past: "started", audioBase: "verb_07_start_base.mp3", audioPast: "verb_07_started_past_ɪd.mp3" },
+        { base: "wait", past: "waited", audioBase: "verb_08_wait_base.mp3", audioPast: "verb_08_waited_past_ɪd.mp3" },
+        { base: "want", past: "wanted", audioBase: "verb_09_want_base.mp3", audioPast: "verb_09_wanted_past_ɪd.mp3" }
+    ],
+    
+    // /t/ ending verbs
+    tVerbs: [
+        { base: "ask", past: "asked", audioBase: "verb_10_ask_base.mp3", audioPast: "verb_10_asked_past_t.mp3" },
+        { base: "book", past: "booked", audioBase: "verb_11_book_base.mp3", audioPast: "verb_11_booked_past_t.mp3" },
+        { base: "check in", past: "checked in", audioBase: "verb_12_check_in_base.mp3", audioPast: "verb_12_checked_in_past_d.mp3" },  // Note: _d not _t
+        { base: "finish", past: "finished", audioBase: "verb_13_finish_base.mp3", audioPast: "verb_13_finished_past_t.mp3" },
+        { base: "help", past: "helped", audioBase: "verb_14_help_base.mp3", audioPast: "verb_14_helped_past_t.mp3" },
+        { base: "like", past: "liked", audioBase: "verb_15_like_base.mp3", audioPast: "verb_15_liked_past_t.mp3" },
+        { base: "look", past: "looked", audioBase: "verb_16_look_base.mp3", audioPast: "verb_16_looked_past_t.mp3" },
+        { base: "miss", past: "missed", audioBase: "verb_17_miss_base.mp3", audioPast: "verb_17_missed_past_t.mp3" },
+        { base: "pack", past: "packed", audioBase: "verb_18_pack_base.mp3", audioPast: "verb_18_packed_past_t.mp3" },
+        { base: "pass", past: "passed", audioBase: "verb_19_pass_base.mp3", audioPast: "verb_19_passed_past_t.mp3" },
+        { base: "relax", past: "relaxed", audioBase: "verb_20_relax_base.mp3", audioPast: "verb_20_relaxed_past_t.mp3" },
+        { base: "stop", past: "stopped", audioBase: "verb_21_stop_base.mp3", audioPast: "verb_21_stopped_past_t.mp3" },
+        { base: "talk", past: "talked", audioBase: "verb_22_talk_base.mp3", audioPast: "verb_22_talked_past_t.mp3" },
+        { base: "walk", past: "walked", audioBase: "verb_23_walk_base.mp3", audioPast: "verb_23_walked_past_t.mp3" },
+        { base: "wash", past: "washed", audioBase: "verb_24_wash_base.mp3", audioPast: "verb_24_washed_past_t.mp3" },
+        { base: "watch", past: "watched", audioBase: "verb_25_watch_base.mp3", audioPast: "verb_25_watched_past_t.mp3" },
+        { base: "work", past: "worked", audioBase: "verb_26_work_base.mp3", audioPast: "verb_26_worked_past_t.mp3" },
+        { base: "close", past: "closed", audioBase: "verb_32_close_base.mp3", audioPast: "verb_32_closed_past_t.mp3" },  // Moved from /d/ section
+        { base: "cook", past: "cooked", audioBase: "verb_33_cook_base.mp3", audioPast: "verb_33_cooked_past_t.mp3" },    // Moved from /d/ section
+        { base: "use", past: "used", audioBase: "verb_50_use_base.mp3", audioPast: "verb_50_used_past_t.mp3" }          // Moved from /d/ section
+    ],
+    
+    // /d/ ending verbs
+    dVerbs: [
+        { base: "answer", past: "answered", audioBase: "verb_27_answer_base.mp3", audioPast: "verb_27_answered_past_d.mp3" },
+        { base: "arrive", past: "arrived", audioBase: "verb_28_arrive_base.mp3", audioPast: "verb_28_arrived_past_d.mp3" },
+        { base: "carry", past: "carried", audioBase: "verb_29_carry_base.mp3", audioPast: "verb_29_carried_past_d.mp3" },
+        { base: "change", past: "changed", audioBase: "verb_30_change_base.mp3", audioPast: "verb_30_changed_past_d.mp3" },
+        { base: "clean", past: "cleaned", audioBase: "verb_31_clean_base.mp3", audioPast: "verb_31_cleaned_past_d.mp3" },
+        { base: "cry", past: "cried", audioBase: "verb_34_cry_base.mp3", audioPast: "verb_34_cried_past_d.mp3" },
+        { base: "learn", past: "learned", audioBase: "verb_35_learn_base.mp3", audioPast: "verb_35_learned_past_d.mp3" },
+        { base: "listen", past: "listened", audioBase: "verb_36_listen_base.mp3", audioPast: "verb_36_listened_past_d.mp3" },
+        { base: "live", past: "lived", audioBase: "verb_37_live_base.mp3", audioPast: "verb_37_lived_past_d.mp3" },
+        { base: "love", past: "loved", audioBase: "verb_38_love_base.mp3", audioPast: "verb_38_loved_past_d.mp3" },
+        { base: "move", past: "moved", audioBase: "verb_39_move_base.mp3", audioPast: "verb_39_moved_past_d.mp3" },
+        { base: "offer", past: "offered", audioBase: "verb_40_offer_base.mp3", audioPast: "verb_40_offered_past_d.mp3" },
+        { base: "open", past: "opened", audioBase: "verb_41_open_base.mp3", audioPast: "verb_41_opened_past_d.mp3" },
+        { base: "phone", past: "phoned", audioBase: "verb_42_phone_base.mp3", audioPast: "verb_42_phoned_past_d.mp3" },
+        { base: "play", past: "played", audioBase: "verb_43_play_base.mp3", audioPast: "verb_43_played_past_d.mp3" },
+        { base: "rain", past: "rained", audioBase: "verb_44_rain_base.mp3", audioPast: "verb_44_rained_past_d.mp3" },
+        { base: "snow", past: "snowed", audioBase: "verb_45_snow_base.mp3", audioPast: "verb_45_snowed_past_d.mp3" },
+        { base: "stay", past: "stayed", audioBase: "verb_46_stay_base.mp3", audioPast: "verb_46_stayed_past_d.mp3" },
+        { base: "study", past: "studied", audioBase: "verb_47_study_base.mp3", audioPast: "verb_47_studied_past_d.mp3" },
+        { base: "travel", past: "travelled", audioBase: "verb_48_travel_base.mp3", audioPast: "verb_48_travelled_past_d.mp3" },
+        { base: "turn", past: "turned", audioBase: "verb_49_turn_base.mp3", audioPast: "verb_49_turned_past_d.mp3" }
+    ]
+};
             
             // Practice sentences with /ɪd/ verbs
             const practiceSentences = [
