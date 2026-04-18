@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>-ed Regular Verbs Pronunciation Dictionary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background-color: #fafafa;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+        
+        .stats {
+            background: rgba(255,255,255,0.15);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .stats i {
+            margin-right: 8px;
+        }
+        
+        .rules-banner {
+            background: linear-gradient(to right, #e8eaf6, #c5cae9);
+            padding: 15px 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        
+        .rule-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .rule-badge {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .rule-badge.id { background: #e74c3c; }
+        .rule-badge.t { background: #f39c12; }
+        .rule-badge.d { background: #27ae60; }
+        
+        .rule-text {
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .rule-text strong {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        .section {
+            padding: 25px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-title i {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .id-section .section-title i { background: #e74c3c; }
+        .t-section .section-title i { background: #f39c12; }
+        .d-section .section-title i { background: #27ae60; }
+        .practice-section .section-title i { background: #667eea; }
+        
+        .section-badge {
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .id-section .section-badge { background: #fdecea; color: #e74c3c; }
+        .t-section .section-badge { background: #fef5e7; color: #f39c12; }
+        .d-section .section-badge { background: #eafaf1; color: #27ae60; }
+        
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .verb-card {
+            background: white;
+            border-radius: 16px;
+            padding: 18px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        
+        .verb-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            border-color: transparent;
+        }
+        
+        .id-section .verb-card:hover { box-shadow: 0 12px 25px rgba(231, 76, 60, 0.15); }
+        .t-section .verb-card:hover { box-shadow: 0 12px 25px rgba(243, 156, 18, 0.15); }
+        .d-section .verb-card:hover { box-shadow: 0 12px 25px rgba(39, 174, 96, 0.15); }
+        
+        .verb-main {
+            text-align: center;
+        }
+        
+        .verb-base {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+        
+        .verb-arrow {
+            color: #999;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        
+        .verb-past {
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .id-section .verb-past { color: #e74c3c; }
+        .t-section .verb-past { color: #f39c12; }
+        .d-section .verb-past { color: #27ae60; }
+        
+        .pronunciation-hint {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+            font-style: italic;
+        }
+        
+        .verb-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .play-btn {
+            background: #f0f2ff;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 40px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            flex: 1;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .id-section .play-btn:hover { background: #e74c3c; color: white; border-color: #e74c3c; }
+        .t-section .play-btn:hover { background: #f39c12; color: white; border-color: #f39c12; }
+        .d-section .play-btn:hover { background: #27ae60; color: white; border-color: #27ae60; }
+        
+        .play-btn.playing {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .play-btn i {
+            font-size: 12px;
+        }
+        
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 12px;
+        }
+        
+        .practice-card {
+            background: white;
+            border-radius: 16px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .practice-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+            border-color: #667eea;
+        }
+        
+        .practice-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.4;
+            flex: 1;
+        }
+        
+        .practice-text .verb-highlight {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+        
+        .practice-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .practice-btn:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+        
+        .practice-btn.playing {
+            background: #e74c3c;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(231, 76, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #a0a0b8;
+            font-size: 14px;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 700px) {
+            .word-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .practice-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .rules-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .verb-base {
+                font-size: 20px;
+            }
+            
+            .verb-past {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-language" style="margin-right: 12px;"></i>-ed Regular Verbs</h1>
+            <p class="subtitle">Pronunciation Dictionary for Adult ESL Learners</p>
+            <span class="stats"><i class="fas fa-microphone-alt"></i> 44 verb pairs • Clear pronunciation • Special emphasis on /ɪd/</span>
+        </header>
+        
+        <div class="rules-banner">
+            <div class="rule-item">
+                <div class="rule-badge id">/ɪd/</div>
+                <div class="rule-text">
+                    <strong>Extra Syllable</strong>
+                    After /t/ or /d/ sounds
+                </div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-badge t">/t/</div>
+                <div class="rule-text">
+                    <strong>Voiceless</strong>
+                    After p, k, s, sh, ch, f, x
+                </div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-badge d">/d/</div>
+                <div class="rule-text">
+                    <strong>Voiced</strong>
+                    After vowels & voiced sounds
+                </div>
+            </div>
+        </div>
+        
+        <!-- /ɪd/ Verbs Section (Special Emphasis) -->
+        <div class="section id-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-star"></i>
+                    <span>/ɪd/ Pronunciation</span>
+                </div>
+                <span class="section-badge"><i class="fas fa-volume-up"></i> Special Emphasis • Extra Syllable</span>
+            </div>
+            <div class="word-grid" id="id-verbs-grid"></div>
+        </div>
+        
+        <!-- /t/ Verbs Section -->
+        <div class="section t-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-microphone"></i>
+                    <span>/t/ Pronunciation</span>
+                </div>
+                <span class="section-badge"><i class="fas fa-info-circle"></i> Voiceless ending</span>
+            </div>
+            <div class="word-grid" id="t-verbs-grid"></div>
+        </div>
+        
+        <!-- /d/ Verbs Section -->
+        <div class="section d-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-music"></i>
+                    <span>/d/ Pronunciation</span>
+                </div>
+                <span class="section-badge"><i class="fas fa-info-circle"></i> Voiced ending</span>
+            </div>
+            <div class="word-grid" id="d-verbs-grid"></div>
+        </div>
+        
+        <!-- Practice Sentences -->
+        <div class="section practice-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Practice Sentences</span>
+                </div>
+                <span class="section-badge" style="background: #e8eaf6; color: #667eea;"><i class="fas fa-headphones"></i> Listen & Repeat</span>
+            </div>
+            <div class="practice-grid" id="practice-grid"></div>
+        </div>
+        
+        <footer>
+            <p><i class="fas fa-graduation-cap"></i> Click any button to hear pronunciation • All audio files spoken slowly & clearly</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verb data organized by pronunciation category
+            const verbs = {
+                // /ɪd/ ending verbs (after /t/ or /d/ sounds)
+                idVerbs: [
+                    { base: "decide", past: "decided", audioBase: "verb_01_decide_base.mp3", audioPast: "verb_01_decided_past_ɪd.mp3" },
+                    { base: "hate", past: "hated", audioBase: "verb_02_hate_base.mp3", audioPast: "verb_02_hated_past_ɪd.mp3" },
+                    { base: "invite", past: "invited", audioBase: "verb_03_invite_base.mp3", audioPast: "verb_03_invited_past_ɪd.mp3" },
+                    { base: "need", past: "needed", audioBase: "verb_04_need_base.mp3", audioPast: "verb_04_needed_past_ɪd.mp3" },
+                    { base: "paint", past: "painted", audioBase: "verb_05_paint_base.mp3", audioPast: "verb_05_painted_past_ɪd.mp3" },
+                    { base: "rent", past: "rented", audioBase: "verb_06_rent_base.mp3", audioPast: "verb_06_rented_past_ɪd.mp3" },
+                    { base: "start", past: "started", audioBase: "verb_07_start_base.mp3", audioPast: "verb_07_started_past_ɪd.mp3" },
+                    { base: "wait", past: "waited", audioBase: "verb_08_wait_base.mp3", audioPast: "verb_08_waited_past_ɪd.mp3" },
+                    { base: "want", past: "wanted", audioBase: "verb_09_want_base.mp3", audioPast: "verb_09_wanted_past_ɪd.mp3" }
+                ],
+                
+                // /t/ ending verbs (after voiceless consonants)
+                tVerbs: [
+                    { base: "ask", past: "asked", audioBase: "verb_10_ask_base.mp3", audioPast: "verb_10_asked_past_t.mp3" },
+                    { base: "book", past: "booked", audioBase: "verb_11_book_base.mp3", audioPast: "verb_11_booked_past_t.mp3" },
+                    { base: "check in", past: "checked in", audioBase: "verb_12_check_in_base.mp3", audioPast: "verb_12_checked_in_past_t.mp3" },
+                    { base: "finish", past: "finished", audioBase: "verb_13_finish_base.mp3", audioPast: "verb_13_finished_past_t.mp3" },
+                    { base: "help", past: "helped", audioBase: "verb_14_help_base.mp3", audioPast: "verb_14_helped_past_t.mp3" },
+                    { base: "like", past: "liked", audioBase: "verb_15_like_base.mp3", audioPast: "verb_15_liked_past_t.mp3" },
+                    { base: "look", past: "looked", audioBase: "verb_16_look_base.mp3", audioPast: "verb_16_looked_past_t.mp3" },
+                    { base: "miss", past: "missed", audioBase: "verb_17_miss_base.mp3", audioPast: "verb_17_missed_past_t.mp3" },
+                    { base: "pack", past: "packed", audioBase: "verb_18_pack_base.mp3", audioPast: "verb_18_packed_past_t.mp3" },
+                    { base: "pass", past: "passed", audioBase: "verb_19_pass_base.mp3", audioPast: "verb_19_passed_past_t.mp3" },
+                    { base: "relax", past: "relaxed", audioBase: "verb_20_relax_base.mp3", audioPast: "verb_20_relaxed_past_t.mp3" },
+                    { base: "stop", past: "stopped", audioBase: "verb_21_stop_base.mp3", audioPast: "verb_21_stopped_past_t.mp3" },
+                    { base: "talk", past: "talked", audioBase: "verb_22_talk_base.mp3", audioPast: "verb_22_talked_past_t.mp3" },
+                    { base: "walk", past: "walked", audioBase: "verb_23_walk_base.mp3", audioPast: "verb_23_walked_past_t.mp3" },
+                    { base: "wash", past: "washed", audioBase: "verb_24_wash_base.mp3", audioPast: "verb_24_washed_past_t.mp3" },
+                    { base: "watch", past: "watched", audioBase: "verb_25_watch_base.mp3", audioPast: "verb_25_watched_past_t.mp3" },
+                    { base: "work", past: "worked", audioBase: "verb_26_work_base.mp3", audioPast: "verb_26_worked_past_t.mp3" }
+                ],
+                
+                // /d/ ending verbs (after voiced sounds)
+                dVerbs: [
+                    { base: "answer", past: "answered", audioBase: "verb_27_answer_base.mp3", audioPast: "verb_27_answered_past_d.mp3" },
+                    { base: "arrive", past: "arrived", audioBase: "verb_28_arrive_base.mp3", audioPast: "verb_28_arrived_past_d.mp3" },
+                    { base: "carry", past: "carried", audioBase: "verb_29_carry_base.mp3", audioPast: "verb_29_carried_past_d.mp3" },
+                    { base: "change", past: "changed", audioBase: "verb_30_change_base.mp3", audioPast: "verb_30_changed_past_d.mp3" },
+                    { base: "clean", past: "cleaned", audioBase: "verb_31_clean_base.mp3", audioPast: "verb_31_cleaned_past_d.mp3" },
+                    { base: "close", past: "closed", audioBase: "verb_32_close_base.mp3", audioPast: "verb_32_closed_past_d.mp3" },
+                    { base: "cook", past: "cooked", audioBase: "verb_33_cook_base.mp3", audioPast: "verb_33_cooked_past_d.mp3" },
+                    { base: "cry", past: "cried", audioBase: "verb_34_cry_base.mp3", audioPast: "verb_34_cried_past_d.mp3" },
+                    { base: "learn", past: "learned", audioBase: "verb_35_learn_base.mp3", audioPast: "verb_35_learned_past_d.mp3" },
+                    { base: "listen", past: "listened", audioBase: "verb_36_listen_base.mp3", audioPast: "verb_36_listened_past_d.mp3" },
+                    { base: "live", past: "lived", audioBase: "verb_37_live_base.mp3", audioPast: "verb_37_lived_past_d.mp3" },
+                    { base: "love", past: "loved", audioBase: "verb_38_love_base.mp3", audioPast: "verb_38_loved_past_d.mp3" },
+                    { base: "move", past: "moved", audioBase: "verb_39_move_base.mp3", audioPast: "verb_39_moved_past_d.mp3" },
+                    { base: "offer", past: "offered", audioBase: "verb_40_offer_base.mp3", audioPast: "verb_40_offered_past_d.mp3" },
+                    { base: "open", past: "opened", audioBase: "verb_41_open_base.mp3", audioPast: "verb_41_opened_past_d.mp3" },
+                    { base: "phone", past: "phoned", audioBase: "verb_42_phone_base.mp3", audioPast: "verb_42_phoned_past_d.mp3" },
+                    { base: "play", past: "played", audioBase: "verb_43_play_base.mp3", audioPast: "verb_43_played_past_d.mp3" },
+                    { base: "rain", past: "rained", audioBase: "verb_44_rain_base.mp3", audioPast: "verb_44_rained_past_d.mp3" },
+                    { base: "snow", past: "snowed", audioBase: "verb_45_snow_base.mp3", audioPast: "verb_45_snowed_past_d.mp3" },
+                    { base: "stay", past: "stayed", audioBase: "verb_46_stay_base.mp3", audioPast: "verb_46_stayed_past_d.mp3" },
+                    { base: "study", past: "studied", audioBase: "verb_47_study_base.mp3", audioPast: "verb_47_studied_past_d.mp3" },
+                    { base: "travel", past: "travelled", audioBase: "verb_48_travel_base.mp3", audioPast: "verb_48_travelled_past_d.mp3" },
+                    { base: "turn", past: "turned", audioBase: "verb_49_turn_base.mp3", audioPast: "verb_49_turned_past_d.mp3" },
+                    { base: "use", past: "used", audioBase: "verb_50_use_base.mp3", audioPast: "verb_50_used_past_d.mp3" }
+                ]
+            };
+            
+            // Practice sentences with /ɪd/ verbs
+            const practiceSentences = [
+                { text: "I <span class='verb-highlight'>decided</span> to learn English.", audio: "practice_01_ɪd_sentence.mp3" },
+                { text: "She <span class='verb-highlight'>hated</span> the cold weather.", audio: "practice_02_ɪd_sentence.mp3" },
+                { text: "He <span class='verb-highlight'>invited</span> me to the party.", audio: "practice_03_ɪd_sentence.mp3" },
+                { text: "They <span class='verb-highlight'>needed</span> more time.", audio: "practice_04_ɪd_sentence.mp3" },
+                { text: "She <span class='verb-highlight'>painted</span> the wall blue.", audio: "practice_05_ɪd_sentence.mp3" },
+                { text: "We <span class='verb-highlight'>rented</span> a car for the trip.", audio: "practice_06_ɪd_sentence.mp3" },
+                { text: "The movie <span class='verb-highlight'>started</span> at eight o'clock.", audio: "practice_07_ɪd_sentence.mp3" },
+                { text: "I <span class='verb-highlight'>waited</span> for thirty minutes.", audio: "practice_08_ɪd_sentence.mp3" },
+                { text: "He <span class='verb-highlight'>wanted</span> a cup of coffee.", audio: "practice_09_ɪd_sentence.mp3" }
+            ];
+            
+            // Helper function to create verb cards
+            function createVerbCard(verb, category) {
+                const hintText = category === 'id' ? '/ɪd/ • extra syllable' : 
+                                category === 't' ? '/t/ • voiceless' : 
+                                '/d/ • voiced';
+                
+                return `
+                    <div class="verb-card">
+                        <div class="verb-main">
+                            <div class="verb-base">${verb.base}</div>
+                            <div class="verb-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="verb-past">${verb.past}</div>
+                            <div class="pronunciation-hint">${hintText}</div>
+                        </div>
+                        <div class="verb-actions">
+                            <button class="play-btn" data-audio="${verb.audioBase}" data-verb="${verb.base}">
+                                <i class="fas fa-play"></i> Base
+                            </button>
+                            <button class="play-btn" data-audio="${verb.audioPast}" data-verb="${verb.past}">
+                                <i class="fas fa-play"></i> Past
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Helper function to create practice cards
+            function createPracticeCard(sentence, index) {
+                return `
+                    <div class="practice-card">
+                        <div class="practice-text">${sentence.text}</div>
+                        <button class="practice-btn" data-audio="${sentence.audio}">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                `;
+            }
+            
+            // Populate grids
+            document.getElementById('id-verbs-grid').innerHTML = verbs.idVerbs.map(v => createVerbCard(v, 'id')).join('');
+            document.getElementById('t-verbs-grid').innerHTML = verbs.tVerbs.map(v => createVerbCard(v, 't')).join('');
+            document.getElementById('d-verbs-grid').innerHTML = verbs.dVerbs.map(v => createVerbCard(v, 'd')).join('');
+            document.getElementById('practice-grid').innerHTML = practiceSentences.map((s, i) => createPracticeCard(s, i)).join('');
+            
+            // Audio player setup
+            let currentAudio = null;
+            let currentButton = null;
+            
+            function setupAudioButtons() {
+                const allPlayButtons = document.querySelectorAll('.play-btn, .practice-btn');
+                
+                allPlayButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        
+                        const audioSrc = this.getAttribute('data-audio');
+                        const audio = new Audio(audioSrc);
+                        audio.volume = 0.8;
+                        
+                        // Stop if same button is playing
+                        if (currentButton === this && currentAudio && !currentAudio.paused) {
+                            currentAudio.pause();
+                            currentAudio.currentTime = 0;
+                            this.classList.remove('playing');
+                            this.innerHTML = '<i class="fas fa-play"></i>' + 
+                                (this.classList.contains('practice-btn') ? '' : 
+                                 (this.innerHTML.includes('Base') ? ' Base' : ' Past'));
+                            currentButton = null;
+                            currentAudio = null;
+                            return;
+                        }
+                        
+                        // Stop any other playing audio
+                        if (currentAudio) {
+                            currentAudio.pause();
+                            currentAudio.currentTime = 0;
+                        }
+                        
+                        if (currentButton) {
+                            currentButton.classList.remove('playing');
+                            const oldText = currentButton.innerHTML;
+                            if (currentButton.classList.contains('practice-btn')) {
+                                currentButton.innerHTML = '<i class="fas fa-play"></i>';
+                            } else {
+                                currentButton.innerHTML = '<i class="fas fa-play"></i>' + 
+                                    (oldText.includes('Base') ? ' Base' : ' Past');
+                            }
+                        }
+                        
+                        // Play new audio
+                        audio.play().catch(error => {
+                            console.error("Error playing audio:", error);
+                        });
+                        
+                        this.classList.add('playing');
+                        const originalText = this.innerHTML;
+                        if (this.classList.contains('practice-btn')) {
+                            this.innerHTML = '<i class="fas fa-stop"></i>';
+                        } else {
+                            this.innerHTML = '<i class="fas fa-stop"></i>' + 
+                                (originalText.includes('Base') ? ' Base' : ' Past');
+                        }
+                        
+                        currentAudio = audio;
+                        currentButton = this;
+                        
+                        // Reset when audio ends
+                        audio.onended = function() {
+                            button.classList.remove('playing');
+                            if (button.classList.contains('practice-btn')) {
+                                button.innerHTML = '<i class="fas fa-play"></i>';
+                            } else {
+                                button.innerHTML = '<i class="fas fa-play"></i>' + 
+                                    (originalText.includes('Base') ? ' Base' : ' Past');
+                            }
+                            currentButton = null;
+                            currentAudio = null;
+                        };
+                        
+                        // Handle errors
+                        audio.onerror = function() {
+                            console.error('Audio error for:', audioSrc);
+                            button.classList.remove('playing');
+                            if (button.classList.contains('practice-btn')) {
+                                button.innerHTML = '<i class="fas fa-play"></i>';
+                            } else {
+                                button.innerHTML = '<i class="fas fa-play"></i>' + 
+                                    (originalText.includes('Base') ? ' Base' : ' Past');
+                            }
+                            currentButton = null;
+                            currentAudio = null;
+                        };
+                    });
+                });
+            }
+            
+            setupAudioButtons();
+        });
+    </script>
+</body>
+</html>
