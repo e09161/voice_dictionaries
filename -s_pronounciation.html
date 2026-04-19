@@ -12,13 +12,11 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
         }
-        
         body {
             background: linear-gradient(135deg, #0f4c75 0%, #3282b8 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        
         .container {
             max-width: 1300px;
             margin: 0 auto;
@@ -27,26 +25,22 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             overflow: hidden;
         }
-        
         header {
             background: linear-gradient(135deg, #0f4c75, #1b6ca8);
             color: white;
             padding: 30px 25px;
             text-align: center;
         }
-        
         h1 {
             font-size: 32px;
             margin-bottom: 8px;
             font-weight: 600;
         }
-        
         .subtitle {
             font-size: 16px;
             opacity: 0.9;
             letter-spacing: 0.5px;
         }
-        
         .stats {
             background: rgba(255,255,255,0.15);
             padding: 10px 20px;
@@ -55,11 +49,9 @@
             margin-top: 15px;
             font-size: 14px;
         }
-        
         .stats i {
             margin-right: 8px;
         }
-        
         .rules-banner {
             background: linear-gradient(to right, #d4edda, #a8d8ea);
             padding: 15px 25px;
@@ -68,13 +60,11 @@
             justify-content: space-around;
             gap: 20px;
         }
-        
         .rule-item {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        
         .rule-badge {
             width: 50px;
             height: 50px;
@@ -86,31 +76,25 @@
             font-size: 20px;
             color: white;
         }
-        
         .rule-badge.iz { background: #e74c3c; }
         .rule-badge.s { background: #f39c12; }
         .rule-badge.z { background: #27ae60; }
-        
         .rule-text {
             font-size: 14px;
             color: #333;
         }
-        
         .rule-text strong {
             font-size: 16px;
             display: block;
             margin-bottom: 3px;
         }
-        
         .section {
             padding: 25px;
             border-bottom: 1px solid #e0e0e0;
         }
-        
         .section:last-of-type {
             border-bottom: none;
         }
-        
         .section-header {
             display: flex;
             align-items: center;
@@ -119,7 +103,6 @@
             flex-wrap: wrap;
             gap: 15px;
         }
-        
         .section-title {
             font-size: 24px;
             font-weight: 700;
@@ -127,7 +110,6 @@
             align-items: center;
             gap: 12px;
         }
-        
         .section-title i {
             width: 40px;
             height: 40px;
@@ -138,29 +120,24 @@
             color: white;
             font-size: 18px;
         }
-        
         .iz-section .section-title i { background: #e74c3c; }
         .s-section .section-title i { background: #f39c12; }
         .z-section .section-title i { background: #27ae60; }
         .practice-section .section-title i { background: #0f4c75; }
-        
         .section-badge {
             padding: 6px 15px;
             border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
         }
-        
         .iz-section .section-badge { background: #fdecea; color: #e74c3c; }
         .s-section .section-badge { background: #fef5e7; color: #f39c12; }
         .z-section .section-badge { background: #eafaf1; color: #27ae60; }
-        
         .word-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 12px;
         }
-        
         .word-card {
             background: white;
             border-radius: 14px;
@@ -174,43 +151,35 @@
             border: 1px solid #e0e0e0;
             box-shadow: 0 2px 6px rgba(0,0,0,0.04);
         }
-        
         .word-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             border-color: transparent;
         }
-        
         .iz-section .word-card:hover { box-shadow: 0 10px 20px rgba(231, 76, 60, 0.15); }
         .s-section .word-card:hover { box-shadow: 0 10px 20px rgba(243, 156, 18, 0.15); }
         .z-section .word-card:hover { box-shadow: 0 10px 20px rgba(39, 174, 96, 0.15); }
-        
         .word-base {
             font-size: 20px;
             font-weight: 600;
             color: #1a1a2e;
         }
-        
         .word-arrow {
             color: #999;
             font-size: 12px;
         }
-        
         .word-s-form {
             font-size: 22px;
             font-weight: 700;
         }
-        
         .iz-section .word-s-form { color: #e74c3c; }
         .s-section .word-s-form { color: #f39c12; }
         .z-section .word-s-form { color: #27ae60; }
-        
         .pronunciation-hint {
             font-size: 12px;
             color: #666;
             font-style: italic;
         }
-        
         .play-btn {
             background: #f0f4ff;
             color: #1a1a2e;
@@ -228,27 +197,22 @@
             font-weight: 500;
             border: 1px solid #e0e0e0;
         }
-        
         .iz-section .play-btn:hover { background: #e74c3c; color: white; border-color: #e74c3c; }
         .s-section .play-btn:hover { background: #f39c12; color: white; border-color: #f39c12; }
         .z-section .play-btn:hover { background: #27ae60; color: white; border-color: #27ae60; }
-        
         .play-btn.playing {
             background: #0f4c75;
             color: white;
             border-color: #0f4c75;
         }
-        
         .play-btn i {
             font-size: 11px;
         }
-        
         .practice-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 12px;
         }
-        
         .practice-card {
             background: white;
             border-radius: 16px;
@@ -260,28 +224,21 @@
             border: 1px solid #e0e0e0;
             transition: all 0.3s ease;
         }
-        
         .practice-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(15, 76, 117, 0.15);
             border-color: #0f4c75;
         }
-        
         .practice-text {
             font-size: 16px;
             color: #333;
             line-height: 1.4;
             flex: 1;
         }
-        
-        .practice-text .verb-highlight {
-            font-weight: 700;
-        }
-        
-        .practice-text .iz-highlight { color: #e74c3c; }
-        .practice-text .s-highlight { color: #f39c12; }
-        .practice-text .z-highlight { color: #27ae60; }
-        
+        .verb-highlight { font-weight: 700; }
+        .iz-highlight { color: #e74c3c; }
+        .s-highlight { color: #f39c12; }
+        .z-highlight { color: #27ae60; }
         .practice-btn {
             background: #0f4c75;
             color: white;
@@ -296,23 +253,19 @@
             transition: all 0.3s ease;
             flex-shrink: 0;
         }
-        
         .practice-btn:hover {
             background: #3282b8;
             transform: scale(1.05);
         }
-        
         .practice-btn.playing {
             background: #e74c3c;
             animation: pulse 1.5s infinite;
         }
-        
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
             70% { box-shadow: 0 0 0 12px rgba(231, 76, 60, 0); }
             100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
         }
-        
         footer {
             text-align: center;
             padding: 20px;
@@ -320,24 +273,11 @@
             color: #a0c4d8;
             font-size: 14px;
         }
-        
         @media (max-width: 700px) {
-            .word-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .practice-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .rules-banner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
+            .word-grid { grid-template-columns: 1fr; }
+            .practice-grid { grid-template-columns: 1fr; }
+            .rules-banner { flex-direction: column; align-items: flex-start; }
+            h1 { font-size: 24px; }
         }
     </style>
 </head>
@@ -350,87 +290,32 @@
         </header>
         
         <div class="rules-banner">
-            <div class="rule-item">
-                <div class="rule-badge iz">/ɪz/</div>
-                <div class="rule-text">
-                    <strong>Extra Syllable</strong>
-                    After s, z, sh, ch, j, x sounds
-                </div>
-            </div>
-            <div class="rule-item">
-                <div class="rule-badge s">/s/</div>
-                <div class="rule-text">
-                    <strong>Voiceless</strong>
-                    After p, t, k, f, th (voiceless)
-                </div>
-            </div>
-            <div class="rule-item">
-                <div class="rule-badge z">/z/</div>
-                <div class="rule-text">
-                    <strong>Voiced</strong>
-                    After vowels & voiced consonants
-                </div>
-            </div>
+            <div class="rule-item"><div class="rule-badge iz">/ɪz/</div><div class="rule-text"><strong>Extra Syllable</strong>After s, z, sh, ch, j, x sounds</div></div>
+            <div class="rule-item"><div class="rule-badge s">/s/</div><div class="rule-text"><strong>Voiceless</strong>After p, t, k, f, th (voiceless)</div></div>
+            <div class="rule-item"><div class="rule-badge z">/z/</div><div class="rule-text"><strong>Voiced</strong>After vowels & voiced consonants</div></div>
         </div>
         
-        <!-- /ɪz/ Words Section -->
         <div class="section iz-section">
-            <div class="section-header">
-                <div class="section-title">
-                    <i class="fas fa-star"></i>
-                    <span>/ɪz/ Pronunciation</span>
-                </div>
-                <span class="section-badge"><i class="fas fa-volume-up"></i> Extra Syllable • /ɪz/</span>
-            </div>
+            <div class="section-header"><div class="section-title"><i class="fas fa-star"></i><span>/ɪz/ Pronunciation</span></div><span class="section-badge"><i class="fas fa-volume-up"></i> Extra Syllable • /ɪz/</span></div>
             <div class="word-grid" id="iz-words-grid"></div>
         </div>
-        
-        <!-- /s/ Words Section -->
         <div class="section s-section">
-            <div class="section-header">
-                <div class="section-title">
-                    <i class="fas fa-wind"></i>
-                    <span>/s/ Pronunciation</span>
-                </div>
-                <span class="section-badge"><i class="fas fa-info-circle"></i> Voiceless ending</span>
-            </div>
+            <div class="section-header"><div class="section-title"><i class="fas fa-wind"></i><span>/s/ Pronunciation</span></div><span class="section-badge"><i class="fas fa-info-circle"></i> Voiceless ending</span></div>
             <div class="word-grid" id="s-words-grid"></div>
         </div>
-        
-        <!-- /z/ Words Section -->
         <div class="section z-section">
-            <div class="section-header">
-                <div class="section-title">
-                    <i class="fas fa-music"></i>
-                    <span>/z/ Pronunciation</span>
-                </div>
-                <span class="section-badge"><i class="fas fa-info-circle"></i> Voiced ending</span>
-            </div>
+            <div class="section-header"><div class="section-title"><i class="fas fa-music"></i><span>/z/ Pronunciation</span></div><span class="section-badge"><i class="fas fa-info-circle"></i> Voiced ending</span></div>
             <div class="word-grid" id="z-words-grid"></div>
         </div>
-        
-        <!-- Practice Sentences -->
         <div class="section practice-section">
-            <div class="section-header">
-                <div class="section-title">
-                    <i class="fas fa-comment-dots"></i>
-                    <span>Practice Sentences</span>
-                </div>
-                <span class="section-badge" style="background: #d4edda; color: #0f4c75;"><i class="fas fa-headphones"></i> Listen & Repeat</span>
-            </div>
+            <div class="section-header"><div class="section-title"><i class="fas fa-comment-dots"></i><span>Practice Sentences</span></div><span class="section-badge" style="background: #d4edda; color: #0f4c75;"><i class="fas fa-headphones"></i> Listen & Repeat</span></div>
             <div class="practice-grid" id="practice-grid"></div>
         </div>
-        
-        <footer>
-            <p><i class="fas fa-graduation-cap"></i> Click any button to hear pronunciation • All words spoken slowly & clearly</p>
-        </footer>
+        <footer><p><i class="fas fa-graduation-cap"></i> Click any button to hear pronunciation • All words spoken slowly & clearly</p></footer>
     </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Words organized by pronunciation category with MP3 filenames
+        (function(){
             const words = {
-                // /ɪz/ ending
                 izWords: [
                     { base: "bus", sForm: "buses", audio: "s_01_buses_iz.mp3", hint: "/ɪz/ • extra syllable" },
                     { base: "class", sForm: "classes", audio: "s_02_classes_iz.mp3", hint: "/ɪz/ • extra syllable" },
@@ -447,8 +332,6 @@
                     { base: "rose", sForm: "roses", audio: "s_13_roses_iz.mp3", hint: "/ɪz/ • extra syllable" },
                     { base: "buzz", sForm: "buzzes", audio: "s_14_buzzes_iz.mp3", hint: "/ɪz/ • extra syllable" }
                 ],
-                
-                // /s/ ending
                 sWords: [
                     { base: "book", sForm: "books", audio: "s_15_books_s.mp3", hint: "/s/ • voiceless" },
                     { base: "cup", sForm: "cups", audio: "s_16_cups_s.mp3", hint: "/s/ • voiceless" },
@@ -467,8 +350,6 @@
                     { base: "talk", sForm: "talks", audio: "s_29_talks_s.mp3", hint: "/s/ • 3rd person" },
                     { base: "walk", sForm: "walks", audio: "s_30_walks_s.mp3", hint: "/s/ • 3rd person" }
                 ],
-                
-                // /z/ ending
                 zWords: [
                     { base: "dog", sForm: "dogs", audio: "s_31_dogs_z.mp3", hint: "/z/ • voiced" },
                     { base: "bag", sForm: "bags", audio: "s_32_bags_z.mp3", hint: "/z/ • voiced" },
@@ -497,8 +378,6 @@
                     { base: "love", sForm: "loves", audio: "s_55_loves_z.mp3", hint: "/z/ • 3rd person" }
                 ]
             };
-            
-            // Practice sentences
             const practiceSentences = [
                 { text: "She <span class='verb-highlight iz-highlight'>watches</span> TV every evening.", audio: "practice_s_01_iz.mp3" },
                 { text: "The <span class='verb-highlight iz-highlight'>boxes</span> are on the table.", audio: "practice_s_02_iz.mp3" },
@@ -508,4 +387,55 @@
                 { text: "She <span class='verb-highlight s-highlight'>talks</span> to her mother daily.", audio: "practice_s_06_s.mp3" },
                 { text: "I have three <span class='verb-highlight s-highlight'>books</span> on my desk.", audio: "practice_s_07_s.mp3" },
                 { text: "The cat <span class='verb-highlight s-highlight'>sleeps</span> all day.", audio: "practice_s_08_s.mp3" },
-                { text: "He <span class='verb-highlight s-highlight'>walks</span> to work every day.", audio:
+                { text: "He <span class='verb-highlight s-highlight'>walks</span> to work every day.", audio: "practice_s_09_s.mp3" },
+                { text: "She <span class='verb-highlight s-highlight'>helps</span> her friends with homework.", audio: "practice_s_10_s.mp3" },
+                { text: "He <span class='verb-highlight z-highlight'>plays</span> guitar very well.", audio: "practice_s_11_z.mp3" },
+                { text: "The <span class='verb-highlight z-highlight'>dogs</span> are in the garden.", audio: "practice_s_12_z.mp3" },
+                { text: "She <span class='verb-highlight z-highlight'>loves</span> chocolate ice cream.", audio: "practice_s_13_z.mp3" },
+                { text: "He <span class='verb-highlight z-highlight'>reads</span> the newspaper every morning.", audio: "practice_s_14_z.mp3" },
+                { text: "The birds <span class='verb-highlight z-highlight'>sing</span> in the trees.", audio: "practice_s_15_z.mp3" }
+            ];
+            function renderCard(w) {
+                return `<div class="word-card"><div class="word-base">${w.base}</div><div class="word-arrow"><i class="fas fa-plus"></i> s</div><div class="word-s-form">${w.sForm}</div><div class="pronunciation-hint">${w.hint}</div><button class="play-btn" data-audio="${w.audio}"><i class="fas fa-play"></i> Listen</button></div>`;
+            }
+            document.getElementById('iz-words-grid').innerHTML = words.izWords.map(renderCard).join('');
+            document.getElementById('s-words-grid').innerHTML = words.sWords.map(renderCard).join('');
+            document.getElementById('z-words-grid').innerHTML = words.zWords.map(renderCard).join('');
+            document.getElementById('practice-grid').innerHTML = practiceSentences.map(s => `<div class="practice-card"><div class="practice-text">${s.text}</div><button class="practice-btn" data-audio="${s.audio}"><i class="fas fa-play"></i></button></div>`).join('');
+            
+            let currentAudio = null, currentButton = null;
+            function setupAudio() {
+                document.querySelectorAll('.play-btn, .practice-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const audioSrc = this.dataset.audio;
+                        const audio = new Audio(audioSrc);
+                        audio.volume = 0.8;
+                        if (currentButton === this && currentAudio && !currentAudio.paused) {
+                            currentAudio.pause(); currentAudio.currentTime = 0;
+                            this.classList.remove('playing');
+                            this.innerHTML = this.classList.contains('practice-btn') ? '<i class="fas fa-play"></i>' : '<i class="fas fa-play"></i> Listen';
+                            currentButton = null; currentAudio = null; return;
+                        }
+                        if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
+                        if (currentButton) {
+                            currentButton.classList.remove('playing');
+                            currentButton.innerHTML = currentButton.classList.contains('practice-btn') ? '<i class="fas fa-play"></i>' : '<i class="fas fa-play"></i> Listen';
+                        }
+                        audio.play().catch(err => console.error(err));
+                        this.classList.add('playing');
+                        this.innerHTML = this.classList.contains('practice-btn') ? '<i class="fas fa-stop"></i>' : '<i class="fas fa-stop"></i> Stop';
+                        currentAudio = audio; currentButton = this;
+                        audio.onended = () => {
+                            this.classList.remove('playing');
+                            this.innerHTML = this.classList.contains('practice-btn') ? '<i class="fas fa-play"></i>' : '<i class="fas fa-play"></i> Listen';
+                            currentButton = null; currentAudio = null;
+                        };
+                    });
+                });
+            }
+            setupAudio();
+        })();
+    </script>
+</body>
+</html>
