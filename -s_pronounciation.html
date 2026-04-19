@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>-s Endings Pronunciation Dictionary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f4c75 0%, #3282b8 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background-color: #fafafa;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f4c75, #1b6ca8);
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+        
+        .stats {
+            background: rgba(255,255,255,0.15);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .stats i {
+            margin-right: 8px;
+        }
+        
+        .rules-banner {
+            background: linear-gradient(to right, #d4edda, #a8d8ea);
+            padding: 15px 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        
+        .rule-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .rule-badge {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .rule-badge.iz { background: #e74c3c; }
+        .rule-badge.s { background: #f39c12; }
+        .rule-badge.z { background: #27ae60; }
+        
+        .rule-text {
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .rule-text strong {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        .section {
+            padding: 25px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-title i {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .iz-section .section-title i { background: #e74c3c; }
+        .s-section .section-title i { background: #f39c12; }
+        .z-section .section-title i { background: #27ae60; }
+        .practice-section .section-title i { background: #0f4c75; }
+        
+        .section-badge {
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .iz-section .section-badge { background: #fdecea; color: #e74c3c; }
+        .s-section .section-badge { background: #fef5e7; color: #f39c12; }
+        .z-section .section-badge { background: #eafaf1; color: #27ae60; }
+        
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+        }
+        
+        .word-card {
+            background: white;
+            border-radius: 14px;
+            padding: 15px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        
+        .word-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: transparent;
+        }
+        
+        .iz-section .word-card:hover { box-shadow: 0 10px 20px rgba(231, 76, 60, 0.15); }
+        .s-section .word-card:hover { box-shadow: 0 10px 20px rgba(243, 156, 18, 0.15); }
+        .z-section .word-card:hover { box-shadow: 0 10px 20px rgba(39, 174, 96, 0.15); }
+        
+        .word-base {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .word-arrow {
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .word-s-form {
+            font-size: 22px;
+            font-weight: 700;
+        }
+        
+        .iz-section .word-s-form { color: #e74c3c; }
+        .s-section .word-s-form { color: #f39c12; }
+        .z-section .word-s-form { color: #27ae60; }
+        
+        .pronunciation-hint {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .play-btn {
+            background: #f0f4ff;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .iz-section .play-btn:hover { background: #e74c3c; color: white; border-color: #e74c3c; }
+        .s-section .play-btn:hover { background: #f39c12; color: white; border-color: #f39c12; }
+        .z-section .play-btn:hover { background: #27ae60; color: white; border-color: #27ae60; }
+        
+        .play-btn.playing {
+            background: #0f4c75;
+            color: white;
+            border-color: #0f4c75;
+        }
+        
+        .play-btn i {
+            font-size: 11px;
+        }
+        
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px;
+        }
+        
+        .practice-card {
+            background: white;
+            border-radius: 16px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .practice-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(15, 76, 117, 0.15);
+            border-color: #0f4c75;
+        }
+        
+        .practice-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.4;
+            flex: 1;
+        }
+        
+        .practice-text .verb-highlight {
+            font-weight: 700;
+        }
+        
+        .practice-text .iz-highlight { color: #e74c3c; }
+        .practice-text .s-highlight { color: #f39c12; }
+        .practice-text .z-highlight { color: #27ae60; }
+        
+        .practice-btn {
+            background: #0f4c75;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .practice-btn:hover {
+            background: #3282b8;
+            transform: scale(1.05);
+        }
+        
+        .practice-btn.playing {
+            background: #e74c3c;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(231, 76, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0f4c75;
+            color: #a0c4d8;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 700px) {
+            .word-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .practice-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .rules-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-language" style="margin-right: 12px;"></i>-s Endings Pronunciation</h1>
+            <p class="subtitle">Plurals • Third Person Singular • Possessives</p>
+            <span class="stats"><i class="fas fa-microphone-alt"></i> 45 words • Clear pronunciation • Adult ESL</span>
+        </header>
+        
+        <div class="rules-banner">
+            <div class="rule-item">
+                <div class="rule-badge iz">/ɪz/</div>
+                <div class="rule-text">
+                    <strong>Extra Syllable</strong>
+                    After s, z, sh, ch, j, x sounds
+                </div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-badge s">/s/</div>
+                <div class="rule-text">
+                    <strong>Voiceless</strong>
+                    After p, t, k, f, th (voiceless)
+                </div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-badge z">/z/</div>
+                <div class="rule-text">
+                    <strong>Voiced</strong>
+                    After vowels & voiced consonants
+                </div>
+            </div>
+        </div>
+        
+        <!-- /ɪz/ Words Section -->
+        <div class="section iz-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-star"></i>
+                    <span>/ɪz/ Pronunciation</span>
+                </div>
+                <span class="section-badge"><i class="fas fa-volume-up"></i> Extra Syllable • /ɪz/</span>
+            </div>
+            <div class="word-grid" id="iz-words-grid"></div>
+        </div>
+        
+        <!-- /s/ Words Section -->
+        <div class="section s-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-wind"></i>
+                    <span>/s/ Pronunciation</span>
+                </div>
+                <span class="section-badge"><i class="fas fa-info-circle"></i> Voiceless ending</span>
+            </div>
+            <div class="word-grid" id="s-words-grid"></div>
+        </div>
+        
+        <!-- /z/ Words Section -->
+        <div class="section z-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-music"></i>
+                    <span>/z/ Pronunciation</span>
+                </div>
+                <span class="section-badge"><i class="fas fa-info-circle"></i> Voiced ending</span>
+            </div>
+            <div class="word-grid" id="z-words-grid"></div>
+        </div>
+        
+        <!-- Practice Sentences -->
+        <div class="section practice-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Practice Sentences</span>
+                </div>
+                <span class="section-badge" style="background: #d4edda; color: #0f4c75;"><i class="fas fa-headphones"></i> Listen & Repeat</span>
+            </div>
+            <div class="practice-grid" id="practice-grid"></div>
+        </div>
+        
+        <footer>
+            <p><i class="fas fa-graduation-cap"></i> Click any button to hear pronunciation • All words spoken slowly & clearly</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Words organized by pronunciation category with MP3 filenames
+            const words = {
+                // /ɪz/ ending
+                izWords: [
+                    { base: "bus", sForm: "buses", audio: "s_01_buses_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "class", sForm: "classes", audio: "s_02_classes_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "glass", sForm: "glasses", audio: "s_03_glasses_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "dress", sForm: "dresses", audio: "s_04_dresses_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "box", sForm: "boxes", audio: "s_05_boxes_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "fox", sForm: "foxes", audio: "s_06_foxes_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "watch", sForm: "watches", audio: "s_07_watches_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "teach", sForm: "teaches", audio: "s_08_teaches_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "wash", sForm: "washes", audio: "s_09_washes_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "brush", sForm: "brushes", audio: "s_10_brushes_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "judge", sForm: "judges", audio: "s_11_judges_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "page", sForm: "pages", audio: "s_12_pages_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "rose", sForm: "roses", audio: "s_13_roses_iz.mp3", hint: "/ɪz/ • extra syllable" },
+                    { base: "buzz", sForm: "buzzes", audio: "s_14_buzzes_iz.mp3", hint: "/ɪz/ • extra syllable" }
+                ],
+                
+                // /s/ ending
+                sWords: [
+                    { base: "book", sForm: "books", audio: "s_15_books_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "cup", sForm: "cups", audio: "s_16_cups_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "map", sForm: "maps", audio: "s_17_maps_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "cat", sForm: "cats", audio: "s_18_cats_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "hat", sForm: "hats", audio: "s_19_hats_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "bat", sForm: "bats", audio: "s_20_bats_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "desk", sForm: "desks", audio: "s_21_desks_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "clock", sForm: "clocks", audio: "s_22_clocks_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "roof", sForm: "roofs", audio: "s_23_roofs_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "laugh", sForm: "laughs", audio: "s_24_laughs_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "month", sForm: "months", audio: "s_25_months_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "myth", sForm: "myths", audio: "s_26_myths_s.mp3", hint: "/s/ • voiceless" },
+                    { base: "stop", sForm: "stops", audio: "s_27_stops_s.mp3", hint: "/s/ • 3rd person" },
+                    { base: "help", sForm: "helps", audio: "s_28_helps_s.mp3", hint: "/s/ • 3rd person" },
+                    { base: "talk", sForm: "talks", audio: "s_29_talks_s.mp3", hint: "/s/ • 3rd person" },
+                    { base: "walk", sForm: "walks", audio: "s_30_walks_s.mp3", hint: "/s/ • 3rd person" }
+                ],
+                
+                // /z/ ending
+                zWords: [
+                    { base: "dog", sForm: "dogs", audio: "s_31_dogs_z.mp3", hint: "/z/ • voiced" },
+                    { base: "bag", sForm: "bags", audio: "s_32_bags_z.mp3", hint: "/z/ • voiced" },
+                    { base: "leg", sForm: "legs", audio: "s_33_legs_z.mp3", hint: "/z/ • voiced" },
+                    { base: "car", sForm: "cars", audio: "s_34_cars_z.mp3", hint: "/z/ • voiced" },
+                    { base: "star", sForm: "stars", audio: "s_35_stars_z.mp3", hint: "/z/ • voiced" },
+                    { base: "door", sForm: "doors", audio: "s_36_doors_z.mp3", hint: "/z/ • voiced" },
+                    { base: "chair", sForm: "chairs", audio: "s_37_chairs_z.mp3", hint: "/z/ • voiced" },
+                    { base: "pen", sForm: "pens", audio: "s_38_pens_z.mp3", hint: "/z/ • voiced" },
+                    { base: "phone", sForm: "phones", audio: "s_39_phones_z.mp3", hint: "/z/ • voiced" },
+                    { base: "name", sForm: "names", audio: "s_40_names_z.mp3", hint: "/z/ • voiced" },
+                    { base: "game", sForm: "games", audio: "s_41_games_z.mp3", hint: "/z/ • voiced" },
+                    { base: "ball", sForm: "balls", audio: "s_42_balls_z.mp3", hint: "/z/ • voiced" },
+                    { base: "bell", sForm: "bells", audio: "s_43_bells_z.mp3", hint: "/z/ • voiced" },
+                    { base: "girl", sForm: "girls", audio: "s_44_girls_z.mp3", hint: "/z/ • voiced" },
+                    { base: "boy", sForm: "boys", audio: "s_45_boys_z.mp3", hint: "/z/ • voiced" },
+                    { base: "day", sForm: "days", audio: "s_46_days_z.mp3", hint: "/z/ • voiced" },
+                    { base: "key", sForm: "keys", audio: "s_47_keys_z.mp3", hint: "/z/ • voiced" },
+                    { base: "tree", sForm: "trees", audio: "s_48_trees_z.mp3", hint: "/z/ • voiced" },
+                    { base: "eye", sForm: "eyes", audio: "s_49_eyes_z.mp3", hint: "/z/ • voiced" },
+                    { base: "go", sForm: "goes", audio: "s_50_goes_z.mp3", hint: "/z/ • 3rd person" },
+                    { base: "do", sForm: "does", audio: "s_51_does_z.mp3", hint: "/z/ • 3rd person" },
+                    { base: "play", sForm: "plays", audio: "s_52_plays_z.mp3", hint: "/z/ • 3rd person" },
+                    { base: "read", sForm: "reads", audio: "s_53_reads_z.mp3", hint: "/z/ • 3rd person" },
+                    { base: "live", sForm: "lives", audio: "s_54_lives_z.mp3", hint: "/z/ • 3rd person" },
+                    { base: "love", sForm: "loves", audio: "s_55_loves_z.mp3", hint: "/z/ • 3rd person" }
+                ]
+            };
+            
+            // Practice sentences
+            const practiceSentences = [
+                { text: "She <span class='verb-highlight iz-highlight'>watches</span> TV every evening.", audio: "practice_s_01_iz.mp3" },
+                { text: "The <span class='verb-highlight iz-highlight'>boxes</span> are on the table.", audio: "practice_s_02_iz.mp3" },
+                { text: "He <span class='verb-highlight iz-highlight'>washes</span> his car on Sundays.", audio: "practice_s_03_iz.mp3" },
+                { text: "The teacher <span class='verb-highlight iz-highlight'>teaches</span> English.", audio: "practice_s_04_iz.mp3" },
+                { text: "She <span class='verb-highlight iz-highlight'>brushes</span> her hair every morning.", audio: "practice_s_05_iz.mp3" },
+                { text: "She <span class='verb-highlight s-highlight'>talks</span> to her mother daily.", audio: "practice_s_06_s.mp3" },
+                { text: "I have three <span class='verb-highlight s-highlight'>books</span> on my desk.", audio: "practice_s_07_s.mp3" },
+                { text: "The cat <span class='verb-highlight s-highlight'>sleeps</span> all day.", audio: "practice_s_08_s.mp3" },
+                { text: "He <span class='verb-highlight s-highlight'>walks</span> to work every day.", audio:
